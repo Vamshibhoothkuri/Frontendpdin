@@ -1,0 +1,126 @@
+const ADMIN_KEY = "pdInteriors_ADMIN_2025";
+const CRED_KEY = "pdInteriors_admin_credentials";
+const SESSION_KEY = "pdInteriors_is_admin_logged_in";
+const GALLERY_KEY = "pdInteriors_gallery_items";
+const ENQUIRIES_KEY = "pdInteriors_enquiries";
+
+export const DEMO_ADMIN = {
+  name: "Demo Owner",
+  email: "admin@pdInteriors.com",
+  password: "admin123",
+};
+
+export function ensureDemoAdmin() {
+  if (typeof window === "undefined") return;
+  if (!localStorage.getItem(CRED_KEY)) {
+    localStorage.setItem(CRED_KEY, JSON.stringify(DEMO_ADMIN));
+  }
+}
+
+export interface AdminCredentials {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface GalleryItem {
+  id: string;
+
+  url: string;
+
+  type: "image" | "video";
+
+  name: string;
+
+  category: string;
+
+  section?: string;
+
+  designType?: string;
+
+  service?: string;
+
+  createdAt?: number;
+}
+
+export interface Enquiry {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  projectType?: string;
+  message: string;
+  createdAt: number;
+}
+
+export const adminAuth = {
+  exists(): boolean {
+    if (typeof window === "undefined") return false;
+    return !!localStorage.getItem(CRED_KEY);
+  },
+  get(): AdminCredentials | null {
+    if (typeof window === "undefined") return null;
+    const raw = localStorage.getItem(CRED_KEY);
+    return raw ? JSON.parse(raw) : null;
+  },
+  register(data: AdminCredentials, key: string): { ok: boolean; error?: string } {
+    if (key !== ADMIN_KEY) return { ok: false, error: "Invalid admin key." };
+    if (adminAuth.exists()) return { ok: false, error: "Owner account already created." };
+    localStorage.setItem(CRED_KEY, JSON.stringify(data));
+    localStorage.setItem(SESSION_KEY, "true");
+    return { ok: true };
+  },
+  login(email: string, password: string): { ok: boolean; error?: string } {
+    const creds = adminAuth.get();
+    if (!creds) return { ok: false, error: "No admin account exists. Please register first." };
+    if (creds.email !== email || creds.password !== password) {
+      return { ok: false, error: "Invalid email or password." };
+    }
+    localStorage.setItem(SESSION_KEY, "true");
+    return { ok: true };
+  },
+  logout() {
+    localStorage.removeItem(SESSION_KEY);
+  },
+  isLoggedIn(): boolean {
+  if (typeof window === "undefined") return false;
+
+  return !!localStorage.getItem("token");
+},
+};
+
+export const gallery = {
+  getAll(): GalleryItem[] {
+    if (typeof window === "undefined") return [];
+    const raw = localStorage.getItem(GALLERY_KEY);
+    return raw ? JSON.parse(raw) : [];
+  },
+  add(items: GalleryItem[]) {
+    const current = gallery.getAll();
+    localStorage.setItem(GALLERY_KEY, JSON.stringify([...items, ...current]));
+  },
+  remove(id: string) {
+    const current = gallery.getAll().filter((i) => i.id !== id);
+    localStorage.setItem(GALLERY_KEY, JSON.stringify(current));
+  },
+  clear() {
+    localStorage.removeItem(GALLERY_KEY);
+  },
+};
+
+export const enquiries = {
+  getAll(): Enquiry[] {
+    if (typeof window === "undefined") return [];
+    const raw = localStorage.getItem(ENQUIRIES_KEY);
+    return raw ? JSON.parse(raw) : [];
+  },
+  add(e: Enquiry) {
+    const cur = enquiries.getAll();
+    localStorage.setItem(ENQUIRIES_KEY, JSON.stringify([e, ...cur]));
+  },
+  remove(id: string) {
+    const cur = enquiries.getAll().filter((e) => e.id !== id);
+    localStorage.setItem(ENQUIRIES_KEY, JSON.stringify(cur));
+  },
+};
