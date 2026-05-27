@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "919999999999"; // TODO: replace with your number (country code + number, no '+')
+const WHATSAPP_NUMBER = "919347148900"; // TODO: replace with your number (country code + number, no '+')
 const MESSAGE = "Hi! I'd like to enquire about your interior design services.";
 
 export function WhatsAppButton() {
