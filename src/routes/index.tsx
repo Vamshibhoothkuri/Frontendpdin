@@ -104,7 +104,7 @@ function Hero() {
     <section id="home" className="pt-24 md:pt-28 pb-16 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-terracotta mb-6">Interior Design — Est. 2017</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-terracotta mb-6">Interior Design — Est. 2021</p>
           <h1 className="font-display text-5xl md:text-7xl leading-[1.05] mb-8">
             Crafting spaces that <em className="text-terracotta font-light">whisper</em> your story.
           </h1>
@@ -122,7 +122,7 @@ function Hero() {
           <img src={p3} alt="Design" loading="lazy" className="w-full h-48 md:h-56 object-cover" />
           <div className="absolute -bottom-8 -left-4 md:-left-10 bg-cream border border-clay/40 p-6 shadow-xl grid grid-cols-3 gap-5 text-center">
             <Stat n="160+" l="Projects" />
-            <Stat n="9" l="Years" />
+            <Stat n="5" l="Years" />
             <Stat n="98%" l="Satisfaction" />
           </div>
         </div>
@@ -232,7 +232,7 @@ function About() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
         <div>
           <p className="text-[11px] uppercase tracking-[0.3em] text-terracotta mb-4">Our story</p>
-          <h2 className="font-display text-4xl md:text-5xl mb-8">A decade of designing <em className="text-clay">warm,</em> considered interiors.</h2>
+          <h2 className="font-display text-4xl md:text-5xl mb-8">A Trust of designing <em className="text-clay">warm,</em> considered interiors.</h2>
           <p className="text-cream/70 mb-5 leading-relaxed">
             pdInteriors was founded on the belief that great design is quiet. We blend natural materials, honest craftsmanship, and editorial restraint to create spaces that feel like they've always been yours.
           </p>
@@ -314,7 +314,7 @@ await api.addEnquiry(enq);
         <div className="md:col-span-2 bg-charcoal text-cream p-6 md:p-8">
           <h3 className="font-display text-xl mb-5">Studio</h3>
           <ul className="space-y-5 text-sm">
-            <ContactRow label="Karimnagar - Address" value="Dwaraka Nagar Road No-3, Rekurthi Karimnagar - 505001" />
+            <ContactRow label="Karimnagar - Address" value="#5-7-652, Near Varahaswamy Temple,Housing Board Colony, Karimnagar, TG - 505001." />
             <ContactRow label="Hyderabad - Address" value="Lothkunta, Alwal, Secunderabad - 500015" />
             <ContactRow label="Phone" value="+91 9347148900, +91 9515250437" />
             <ContactRow label="Email" value="pdinteriorsknr@gmail.com" />

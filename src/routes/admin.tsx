@@ -304,14 +304,14 @@ function AdminPage() {
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-display text-xl">Selected files <span className="text-charcoal/40 text-base">({pendingPreviews.length})</span></h3>
               <div className="flex gap-2">
-                <button onClick={clearPending} className="px-4 py-2 border border-clay/40 text-charcoal/70 text-[11px] uppercase tracking-[0.2em] hover:border-charcoal hover:text-charcoal transition-colors">Clear</button>
+                {/* <button onClick={clearPending} className="px-4 py-2 border border-clay/40 text-charcoal/70 text-[11px] uppercase tracking-[0.2em] hover:border-charcoal hover:text-charcoal transition-colors">Clear</button>
                 <button
                   onClick={submitUploads}
                   disabled={uploading}
                   className="px-4 py-2 bg-terracotta text-cream text-[11px] uppercase tracking-[0.2em] hover:bg-charcoal transition-colors disabled:opacity-50"
                 >
                   {uploading ? "Uploading…" : "Submit Uploads"}
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
