@@ -56,9 +56,17 @@ function Nav() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#home" className="font-display text-2xl tracking-tight text-charcoal">
-          pdInteriors<span className="italic text-terracotta">.</span>
-        </a>
+        {/* <a href="#home" className="font-display text-2xl tracking-tight text-charcoal">
+          <img src="/favicon.png" alt="logo" className="h-8 w-8 object-contain" />pdInteriors<span className="italic text-terracotta">.</span>
+        </a> */}
+        <a href="#home" className="font-display text-2xl tracking-tight text-charcoal flex items-center gap-2">
+            <img 
+              src="/favicon.png" 
+              alt="logo" 
+              className="h-8 w-8 object-contain inline-block" 
+            />
+            pdInteriors<span className="italic text-terracotta">.</span>
+          </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] uppercase tracking-[0.18em] text-charcoal">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="hover:text-terracotta transition-colors">
